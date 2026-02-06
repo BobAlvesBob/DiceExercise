@@ -10,19 +10,19 @@ class RollDice extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            die1: 'one',    // Estado do dado 1
-            die2: 'one',    // Estado do dado 2
+            dice1: 'one',    // Estado do dado 1
+            dice2: 'one',    // Estado do dado 2
             rolling: false  // Estado: está rolando agora?
         };
     }
 
     roll = () => {
         // 1. Pegar 2 faces aleatórias do array this.props.sides
-        const newDie1 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
-        const newDie2 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
+        const newDice1 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
+        const newDice2 = this.props.sides[Math.floor(Math.random() * this.props.sides.length)];
 
         // 2. Atualizar o state com as novas faces E dizer que está rolando (rolling: true)
-        this.setState({ die1: newDie1, die2: newDie2, rolling: true });
+        this.setState({ dice1: newDice1, dice2: newDice2, rolling: true });
 
         // 3. Esperar 1 segundo (1000ms) e parar a animação (rolling: false)
         setTimeout(() => {
@@ -35,8 +35,8 @@ class RollDice extends Component {
             <div className='RollDice' style={{textAlign: 'center', marginTop: '50px'}}>
                 <div className='RollDice-container'>
                     {/* Renderizamos os dois dados filhos, passando as props */}
-                    <Dice face={this.state.die1} rolling={this.state.rolling} />
-                    <Dice face={this.state.die2} rolling={this.state.rolling} />
+                    <Dice face={this.state.dice1} rolling={this.state.rolling} />
+                    <Dice face={this.state.dice2} rolling={this.state.rolling} />
                 </div>
 
                 <br />
