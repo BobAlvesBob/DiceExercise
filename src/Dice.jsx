@@ -1,34 +1,26 @@
 import React, { Component } from 'react'
+import './Dice.css'
 
 class Dice extends Component {
     constructor(props) {
         super(props);
-        this.state={diceNumber:1}
+     
     }
-    tossDice = () =>{let newNum =  Math.floor(Math.random()*6)+1;
-        this.setState({diceNumber:newNum})
-
-    };
-    
+   
 
     render() {
 
-        const faces = ['one', 'two', 'three', 'four', 'five', 'six'];
+        let classIcon = `fas fa-dice-${this.props.face}`;
 
-         const faceText  = faces[this.state.diceNumber -1];
+if(this.props.rolling){
+    classIcon += ` shaking`;
+}
 
-
-        const iconClass = `fas fa-dice-${faceText}`;
-
-       
-        return (<div>
-      <h1>Roll the dice!</h1>
-      <i className={iconClass} style={{fontSize: '100px',color: 'purple'}}>
-</i>
-<br/><br/>
-<button onClick={this.tossDice} style={{padding: '20px'}}>Toss Dice</button>
-
-        </div>)
+        
+        return (<i
+        className={classIcon}
+        style={{ fontSize: '100px', padding: '20px', color: 'purple'}}>
+        </i>)
     }
 }
 

@@ -1,10 +1,21 @@
 
+import React, { Component } from 'react'
+import RollDice from './RollDice'
 import './App.css'
-import Dice from './Dice'
 
-function App() {
- return(
-<div className="App"><Dice/></div>)
-}
 
-export default App
+class App extends Component{
+   constructor(props){
+    super(props)
+   }
+    render(){
+        return(
+            <div>
+                <RollDice/>
+            </div>
+        )
+    }
+   } 
+
+
+export default App;
